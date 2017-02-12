@@ -28,6 +28,9 @@
     <beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <beans:property name="prefix" value="/WEB-INF/views/"/>
         <beans:property name="suffix" value=".jsp"/>
+        <!--<beans:property name="contentType" value="text/html; charset=UTF-8"/>-->
+        <!--<input value="한글 깨짐 뒓뭾" 바로 위의 소스로도 안 됨 ㅠ_ㅠ-->
+        <!--http://blog.naver.com/PostView.nhn?blogId=dlaelel1&logNo=100138643494-->
     </beans:bean>
 
     <resources mapping="/resources/**" location="/resources/"/>

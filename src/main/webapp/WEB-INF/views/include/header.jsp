@@ -2,6 +2,7 @@
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%--<%@ page language="java" contentType="text/html" pageEncoding="UTF-8"%>--%>
 
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
@@ -409,7 +410,7 @@
           <!-- End Clothes -->
 
           <!-- Main Demo -->
-          <li><a href="<c:url value="/board/listPage"/>">Free Board</a></li>
+          <li><a href="<c:url value="/sboard/list"/>">Free Board</a></li>
           <!-- Main Demo -->
         </ul>
         <!-- End Nav Menu -->

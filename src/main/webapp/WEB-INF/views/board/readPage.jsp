@@ -78,8 +78,8 @@
                         console.log(formObj);
 
                         $(".btn-warning").on("click", function(){
-                            formObj.attr("action", "/board/modify");
                             formObj.attr("method", "get");
+                            formObj.attr("action", "/board/modifyPage");
                             formObj.submit();
                         });
 

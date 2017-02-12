@@ -81,12 +81,15 @@ public class BoardController {
     }
     */
 
+    /* --- 밑의 150 라인 ------------------------------------------
     @RequestMapping(value = "/modify", method = RequestMethod.GET)
     public void modifyGET(int bno, Model model) throws Exception {
 
         model.addAttribute(service.read(bno));
     }
+    */
 
+    /* --- 밑의 160 라인 ------------------------------------------
     @RequestMapping(value = "/modify", method = RequestMethod.POST)
     public String modifyPOST(BoardVO board, RedirectAttributes rttr) throws Exception {
 
@@ -97,6 +100,7 @@ public class BoardController {
 
         return "redirect:/board/listAll";
     }
+    */
 
     @RequestMapping(value = "/listCri", method = RequestMethod.GET)
     public void listAll(Criteria cri, Model model) throws Exception {
@@ -107,6 +111,7 @@ public class BoardController {
 
     }
 
+
     @RequestMapping(value = "/listPage", method = RequestMethod.GET)
     public void listPage(@ModelAttribute("cri") Criteria cri,
                          Model model) throws Exception {
@@ -114,6 +119,7 @@ public class BoardController {
         logger.info(cri.toString());
 
         model.addAttribute("list", service.listCriteria(cri));
+
         PageMaker pageMaker = new PageMaker();
         pageMaker.setCri(cri);
         // pageMaker.setTotalCount(131);
@@ -145,6 +151,27 @@ public class BoardController {
         return "redirect:/board/listPage";
     }
 
+    @RequestMapping(value = "/modifyPage", method = RequestMethod.GET)
+    public void modifyPagingGET(@RequestParam("bno") int bno,
+                                @ModelAttribute("cri") Criteria cri,
+                                Model model) throws Exception {
+
+        model.addAttribute(service.read(bno));
+    }
+
+    @RequestMapping(value = "/modifyPage", method = RequestMethod.POST)
+    public String modifyPagingPOST(BoardVO board,
+                                   Criteria cri,
+                                   RedirectAttributes rttr) throws Exception {
+
+        service.modify(board);
+
+        rttr.addAttribute("page", cri.getPage());
+        rttr.addAttribute("perPageNum", cri.getPerPageNum());
+        rttr.addFlashAttribute("msg", "success");
+
+        return "redirect:/board/listPage";
+    }
 
 
 }
